@@ -5,4 +5,37 @@
   width: 100vw;
   height: 100vh;
   z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  contain: layout style paint;
+}
+
+/* Mobile optimizations for Aurora background */
+@media (max-width: 768px) {
+  .aurora-container {
+    /* Slightly reduce intensity on mobile for better readability */
+    opacity: 0.85;
+    /* Improve rendering performance on mobile */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .aurora-container canvas {
+    /* Optimize rendering on mobile */
+    image-rendering: optimizeSpeed;
+  }
+}
+
+/* Smaller phones */
+@media (max-width: 480px) {
+  .aurora-container {
+    opacity: 0.75;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-container {
+    opacity: 0.5;
+  }
 }

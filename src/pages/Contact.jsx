@@ -93,21 +93,21 @@ export default function Contact() {
                     variants={staggerContainer}
                     initial="initial"
                     animate="animate"
-                    className="min-h-[60vh] flex flex-col justify-center items-center text-center px-6 pt-32 pb-10"
+                    className="min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 sm:pt-32 pb-8 sm:pb-10"
                 >
-                    <motion.p variants={fadeInUp} transition={{ duration: 0.6 }} className="text-gray-400 text-lg tracking-wide mb-6">
+                    <motion.p variants={fadeInUp} transition={{ duration: 0.6 }} className="text-gray-400 text-base sm:text-lg tracking-wide mb-4 sm:mb-6">
                         Get in Touch
                     </motion.p>
 
-                    <motion.h1 variants={fadeInUp} transition={{ duration: 0.6 }} className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-2 leading-[1.1] text-white/90">
+                    <motion.h1 variants={fadeInUp} transition={{ duration: 0.6 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-2 leading-[1.1] text-white/90">
                         Let's Build Together
                     </motion.h1>
 
-                    <motion.h1 variants={fadeInUp} transition={{ duration: 0.6 }} className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8 leading-[1.1] text-gray-400">
+                    <motion.h1 variants={fadeInUp} transition={{ duration: 0.6 }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 sm:mb-8 leading-[1.1] text-gray-400">
                         Start the Conversation
                     </motion.h1>
 
-                    <motion.p variants={fadeInUp} transition={{ duration: 0.6 }} className="max-w-2xl text-xl text-gray-400 leading-relaxed">
+                    <motion.p variants={fadeInUp} transition={{ duration: 0.6 }} className="max-w-2xl text-base sm:text-xl text-gray-400 leading-relaxed px-2">
                         Have a project in mind? Want to partner with us? We'd love to hear from you.
                     </motion.p>
                 </motion.section>
@@ -118,20 +118,20 @@ export default function Contact() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, amount: 0.1 }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col justify-center items-center px-6 py-20"
+                    className="flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20"
                 >
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 w-full max-w-6xl">
                         {/* Contact Form */}
                         <motion.div 
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10"
+                            className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10"
                         >
-                            <h2 className="text-2xl font-semibold mb-8 tracking-tight">Send us a Message</h2>
+                            <h2 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 tracking-tight">Send us a Message</h2>
                             
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                                 {/* Full Name */}
                                 <div>
                                     <label className="block text-sm text-gray-400 mb-2">
@@ -238,42 +238,42 @@ export default function Contact() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="space-y-8"
+                            className="space-y-6 sm:space-y-8"
                         >
                             <div>
-                                <h2 className="text-2xl font-semibold mb-4 tracking-tight">Contact Information</h2>
-                                <p className="text-gray-400 leading-relaxed">
+                                <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 tracking-tight">Contact Information</h2>
+                                <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                                     Reach out to us through any of these channels. We typically respond within 24-48 hours.
                                 </p>
                             </div>
 
-                            <div className="space-y-6">
+                            <div className="space-y-4 sm:space-y-6">
                                 {/* Location */}
-                                <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                    <MapPin className="w-6 h-6 text-gray-400 mt-1 shrink-0" />
+                                <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 mt-1 shrink-0" />
                                     <div>
-                                        <h3 className="font-semibold mb-1">Our Location</h3>
-                                        <p className="text-gray-400 text-sm">Innovation Hub, Tech Park<br />Hyderabad, India</p>
+                                        <h3 className="font-semibold mb-1 text-sm sm:text-base">Our Location</h3>
+                                        <p className="text-gray-400 text-xs sm:text-sm">Innovation Hub, Tech Park<br />Hyderabad, India</p>
                                     </div>
                                 </div>
 
                                 {/* Email */}
-                                <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                    <Mail className="w-6 h-6 text-gray-400 mt-1 shrink-0" />
+                                <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 mt-1 shrink-0" />
                                     <div>
-                                        <h3 className="font-semibold mb-1">Email Us</h3>
-                                        <a href="mailto:hello@hackboats.com" className="text-gray-400 text-sm hover:text-white transition-colors">
+                                        <h3 className="font-semibold mb-1 text-sm sm:text-base">Email Us</h3>
+                                        <a href="mailto:hello@hackboats.com" className="text-gray-400 text-xs sm:text-sm hover:text-white transition-colors break-all">
                                             hello@hackboats.com
                                         </a>
                                     </div>
                                 </div>
 
                                 {/* Phone */}
-                                <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                    <Phone className="w-6 h-6 text-gray-400 mt-1 shrink-0" />
+                                <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 mt-1 shrink-0" />
                                     <div>
-                                        <h3 className="font-semibold mb-1">Call Us</h3>
-                                        <a href="tel:+919876543210" className="text-gray-400 text-sm hover:text-white transition-colors">
+                                        <h3 className="font-semibold mb-1 text-sm sm:text-base">Call Us</h3>
+                                        <a href="tel:+919876543210" className="text-gray-400 text-xs sm:text-sm hover:text-white transition-colors">
                                             +91 98765 43210
                                         </a>
                                     </div>
@@ -281,9 +281,9 @@ export default function Contact() {
                             </div>
 
                             {/* Quick Links */}
-                            <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <h3 className="font-semibold mb-4">Quick Links</h3>
-                                <ul className="space-y-3">
+                            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h3>
+                                <ul className="space-y-2 sm:space-y-3">
                                     {quickLinks.map((link) => (
                                         <li key={link.name}>
                                             <Link 
@@ -302,12 +302,12 @@ export default function Contact() {
 
                 {/* Footer */}
                 <footer className="relative z-10 w-full border-t border-white/10">
-                    <div className="max-w-7xl mx-auto px-6 py-16">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+                        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
                             {/* Brand */}
-                            <div className="lg:col-span-1">
-                                <h3 className="text-xl font-semibold mb-4 tracking-tight">HACKBOATS</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed">
+                            <div className="col-span-2 md:col-span-2 lg:col-span-1">
+                                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 tracking-tight">HACKBOATS</h3>
+                                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
                                     Building the future with Robotics, AI & Innovation. We deliver industry solutions,
                                     deploy Centres of Excellence, and organize national-level hackathons.
                                 </p>
@@ -315,8 +315,8 @@ export default function Contact() {
 
                             {/* Quick Links */}
                             <div>
-                                <h4 className="text-sm text-gray-400 font-medium mb-4 tracking-wider uppercase">Quick Links</h4>
-                                <ul className="space-y-3">
+                                <h4 className="text-xs sm:text-sm text-gray-400 font-medium mb-3 sm:mb-4 tracking-wider uppercase">Quick Links</h4>
+                                <ul className="space-y-2 sm:space-y-3">
                                     {footerLinks.quickLinks.map((link) => (
                                         <li key={link.name}>
                                             <a href={link.href} className="text-gray-500 hover:text-white text-sm transition-colors duration-300">
@@ -329,8 +329,8 @@ export default function Contact() {
 
                             {/* Industries */}
                             <div>
-                                <h4 className="text-sm text-gray-400 font-medium mb-4 tracking-wider uppercase">Industries</h4>
-                                <ul className="space-y-3">
+                                <h4 className="text-xs sm:text-sm text-gray-400 font-medium mb-3 sm:mb-4 tracking-wider uppercase">Industries</h4>
+                                <ul className="space-y-2 sm:space-y-3">
                                     {footerLinks.industries.map((link) => (
                                         <li key={link.name}>
                                             <a href={link.href} className="text-gray-500 hover:text-white text-sm transition-colors duration-300">
@@ -342,20 +342,20 @@ export default function Contact() {
                             </div>
 
                             {/* Contact */}
-                            <div>
-                                <h4 className="text-sm text-gray-400 font-medium mb-4 tracking-wider uppercase">Contact</h4>
-                                <ul className="space-y-3 text-gray-500 text-sm">
+                            <div className="col-span-2 sm:col-span-1">
+                                <h4 className="text-xs sm:text-sm text-gray-400 font-medium mb-3 sm:mb-4 tracking-wider uppercase">Contact</h4>
+                                <ul className="space-y-2 sm:space-y-3 text-gray-500 text-xs sm:text-sm">
                                     <li>Innovation Hub, Tech Park, India</li>
-                                    <li>hello@hackboats.com</li>
+                                    <li className="break-all">hello@hackboats.com</li>
                                     <li>+91 98765 43210</li>
                                 </ul>
                             </div>
                         </div>
 
                         {/* Bottom Bar */}
-                        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                            <p className="text-gray-600 text-sm">© 2026 HackBoats. All rights reserved.</p>
-                            <div className="flex gap-6">
+                        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+                            <p className="text-gray-600 text-xs sm:text-sm">© 2026 HackBoats. All rights reserved.</p>
+                            <div className="flex gap-4 sm:gap-6">
                                 <a href="#" className="text-gray-600 hover:text-white text-sm transition-colors duration-300">Privacy Policy</a>
                                 <a href="#" className="text-gray-600 hover:text-white text-sm transition-colors duration-300">Terms of Service</a>
                             </div>

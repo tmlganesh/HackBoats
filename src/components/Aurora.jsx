@@ -1,5 +1,5 @@
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import './Aurora.css';
 
@@ -109,21 +109,43 @@ void main() {
 }
 `;
 
+// Detect mobile device
+const isMobile = () => {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
 export default function Aurora(props) {
-  const { colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitude = 1.0, blend = 0.5 } = props;
+  const { 
+    colorStops = ['#5227FF', '#7cff67', '#5227FF'], 
+    amplitude = 1.0, 
+    blend = 0.5 
+  } = props;
+  
+  const [isMobileDevice, setIsMobileDevice] = useState(isMobile());
   const propsRef = useRef(props);
   propsRef.current = props;
 
   const ctnDom = useRef(null);
 
   useEffect(() => {
+    const handleResize = () => setIsMobileDevice(isMobile());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
     const ctn = ctnDom.current;
     if (!ctn) return;
 
+    // Mobile-optimized renderer settings
+    const pixelRatio = isMobileDevice ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio;
+    
     const renderer = new Renderer({
       alpha: true,
       premultipliedAlpha: true,
-      antialias: true
+      antialias: !isMobileDevice, // Disable antialiasing on mobile for performance
+      dpr: pixelRatio
     });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
@@ -154,15 +176,19 @@ export default function Aurora(props) {
       return [c.r, c.g, c.b];
     });
 
+    // Adjust amplitude and blend for mobile
+    const mobileAmplitude = isMobileDevice ? amplitude * 0.8 : amplitude;
+    const mobileBlend = isMobileDevice ? blend * 1.2 : blend;
+
     program = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
         uTime: { value: 0 },
-        uAmplitude: { value: amplitude },
+        uAmplitude: { value: mobileAmplitude },
         uColorStops: { value: colorStopsArray },
         uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
-        uBlend: { value: blend }
+        uBlend: { value: mobileBlend }
       }
     });
 
@@ -170,12 +196,24 @@ export default function Aurora(props) {
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
+    let lastTime = 0;
+    const targetFPS = isMobileDevice ? 30 : 60; // Lower FPS on mobile for battery
+    const frameInterval = 1000 / targetFPS;
+
     const update = t => {
       animateId = requestAnimationFrame(update);
+      
+      // Throttle frame rate on mobile
+      const elapsed = t - lastTime;
+      if (elapsed < frameInterval) return;
+      lastTime = t - (elapsed % frameInterval);
+
       const { time = t * 0.01, speed = 1.0 } = propsRef.current;
-      program.uniforms.uTime.value = time * speed * 0.1;
-      program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
-      program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
+      const mobileSpeed = isMobileDevice ? speed * 0.7 : speed; // Slower animation on mobile
+      
+      program.uniforms.uTime.value = time * mobileSpeed * 0.1;
+      program.uniforms.uAmplitude.value = (propsRef.current.amplitude ?? amplitude) * (isMobileDevice ? 0.8 : 1);
+      program.uniforms.uBlend.value = (propsRef.current.blend ?? blend) * (isMobileDevice ? 1.2 : 1);
       const stops = propsRef.current.colorStops ?? colorStops;
       program.uniforms.uColorStops.value = stops.map(hex => {
         const c = new Color(hex);
@@ -196,7 +234,7 @@ export default function Aurora(props) {
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [amplitude]);
+  }, [amplitude, isMobileDevice]);
 
   return <div ref={ctnDom} className="aurora-container" />;
 }
