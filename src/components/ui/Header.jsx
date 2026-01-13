@@ -1,5 +1,6 @@
 import { Button } from "./button"
 import { useState, useEffect } from "react"
+import hackboatsLogo from "../../assets/hackboats-logo.png"
 import { clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -34,10 +35,14 @@ export default function Header() {
         )}>
             <div className="mx-auto flex max-w-7xl items-center justify-between px-8">
                 {/* Logo */}
-                <a href="#" className="flex items-center group shrink-0">
-                    <span className="text-2xl font-bold tracking-widest text-white transition-opacity group-hover:opacity-80">
-                        HACKBOATS
-                    </span>
+                <a href="#" className="flex items-center group shrink-0 relative">
+                    {/* Glow background effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0B8DD1]/20 via-white/10 to-[#E86824]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150"></div>
+                    <img
+                        src={hackboatsLogo}
+                        alt="HackBoats"
+                        className="h-12 w-auto relative z-10 transition-all duration-500 group-hover:scale-110 drop-shadow-[0_0_20px_rgba(11,141,209,0.6)] group-hover:drop-shadow-[0_0_30px_rgba(232,104,36,0.7)] filter brightness-110 contrast-105"
+                    />
                 </a>
 
                 {/* Navigation Links */}

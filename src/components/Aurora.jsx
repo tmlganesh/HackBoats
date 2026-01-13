@@ -116,12 +116,12 @@ const isMobile = () => {
 };
 
 export default function Aurora(props) {
-  const { 
-    colorStops = ['#5227FF', '#7cff67', '#5227FF'], 
-    amplitude = 1.0, 
-    blend = 0.5 
+  const {
+    colorStops = ['#0B8DD1', '#FFFFFF', '#E86824'],
+    amplitude = 1.0,
+    blend = 0.5
   } = props;
-  
+
   const [isMobileDevice, setIsMobileDevice] = useState(isMobile());
   const propsRef = useRef(props);
   propsRef.current = props;
@@ -140,7 +140,7 @@ export default function Aurora(props) {
 
     // Mobile-optimized renderer settings
     const pixelRatio = isMobileDevice ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio;
-    
+
     const renderer = new Renderer({
       alpha: true,
       premultipliedAlpha: true,
@@ -202,7 +202,7 @@ export default function Aurora(props) {
 
     const update = t => {
       animateId = requestAnimationFrame(update);
-      
+
       // Throttle frame rate on mobile
       const elapsed = t - lastTime;
       if (elapsed < frameInterval) return;
@@ -210,7 +210,7 @@ export default function Aurora(props) {
 
       const { time = t * 0.01, speed = 1.0 } = propsRef.current;
       const mobileSpeed = isMobileDevice ? speed * 0.7 : speed; // Slower animation on mobile
-      
+
       program.uniforms.uTime.value = time * mobileSpeed * 0.1;
       program.uniforms.uAmplitude.value = (propsRef.current.amplitude ?? amplitude) * (isMobileDevice ? 0.8 : 1);
       program.uniforms.uBlend.value = (propsRef.current.blend ?? blend) * (isMobileDevice ? 1.2 : 1);
