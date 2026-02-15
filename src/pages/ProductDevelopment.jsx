@@ -1,0 +1,288 @@
+import { ArrowRight, Bot, Brain, Wifi, Plane, Cog, Rocket } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const pageTransition = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.6 } },
+    exit: { opacity: 0, transition: { duration: 0.4 } }
+}
+
+const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } }
+}
+
+const staggerContainer = {
+    animate: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } }
+}
+
+const technologies = [
+    {
+        icon: Bot,
+        title: 'Robotics',
+        description: 'Autonomous systems, robotic arms, mobile robots, and human-robot interaction',
+    },
+    {
+        icon: Brain,
+        title: 'Artificial Intelligence',
+        description: 'Machine learning, computer vision, NLP, and intelligent decision systems',
+    },
+    {
+        icon: Wifi,
+        title: 'Internet of Things',
+        description: 'Connected devices, sensor networks, and smart infrastructure',
+    },
+    {
+        icon: Plane,
+        title: 'Drones',
+        description: 'Autonomous aerial systems, surveillance drones, and delivery solutions',
+    },
+    {
+        icon: Cog,
+        title: 'Animatronics',
+        description: 'Lifelike mechanical characters, motion control, and special effects',
+    },
+    {
+        icon: Rocket,
+        title: 'Space Science',
+        description: 'Space exploration technologies, satellite systems, and astrophysics research',
+    },
+]
+
+const lifecycle = [
+    {
+        step: '01',
+        title: 'Ideation',
+        description: 'Problem discovery, market research, and concept development',
+    },
+    {
+        step: '02',
+        title: 'Design',
+        description: 'Engineering design, 3D modeling, and system architecture',
+    },
+    {
+        step: '03',
+        title: 'Prototype',
+        description: 'Rapid prototyping, testing, and iterative refinement',
+    },
+    {
+        step: '04',
+        title: 'Deployment',
+        description: 'Manufacturing, integration, and production support',
+    },
+]
+
+const useCases = [
+    {
+        title: 'Pharma & Healthcare',
+        items: [
+            'Automated pill dispensing systems',
+            'Robotic surgical assistants',
+            'AI diagnostic tools',
+            'Lab automation solutions',
+        ],
+    },
+    {
+        title: 'Film & Entertainment',
+        items: [
+            'Animatronic characters',
+            'Motion control camera rigs',
+            'VFX integration systems',
+            'Theme park attractions',
+        ],
+    },
+    {
+        title: 'Industrial Automation',
+        items: [
+            'Smart factory systems',
+            'Robotic assembly lines',
+            'Predictive maintenance',
+            'Quality inspection AI',
+        ],
+    },
+    {
+        title: 'Security & Surveillance',
+        items: [
+            'Autonomous patrol robots',
+            'AI surveillance systems',
+            'Drone monitoring',
+            'Intrusion detection',
+        ],
+    },
+]
+
+
+
+
+export default function ProductDevelopment() {
+    return (
+        <motion.main
+            className="relative z-10 min-h-screen"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageTransition}
+        >
+            {/* Hero Section */}
+            <motion.section
+                className="min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 sm:pt-32 pb-16 sm:pb-20"
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+            >
+                <motion.p variants={fadeInUp} className="text-gray-400 text-base sm:text-lg tracking-wide mb-4 sm:mb-6">
+                    Product Engineering Excellence
+                </motion.p>
+
+                <motion.h1 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-2 leading-[1.1] text-white/90">
+                    Product Development & Industry Solutions
+                </motion.h1>
+
+                <motion.h1 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 sm:mb-8 leading-[1.1] text-gray-400">
+                    From Concept to Deployment
+                </motion.h1>
+
+                <motion.p variants={fadeInUp} className="max-w-2xl text-base sm:text-xl text-gray-400 mb-8 sm:mb-10 leading-relaxed px-2">
+                    From concept to deployment, we engineer cutting-edge products using Robotics, AI, IoT,
+                    Drones, and Animatronics for real-world industry applications.
+                </motion.p>
+
+                <motion.a
+                    variants={fadeInUp}
+                    href="#contact"
+                    className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-black bg-white rounded-full hover:bg-gray-200 transition-colors duration-300"
+                >
+                    Build with HackBoats
+                </motion.a>
+            </motion.section>
+
+            {/* Technologies Section */}
+            <motion.section
+                className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-16 sm:py-20"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
+                <motion.div
+                    className="text-center mb-10 sm:mb-16 max-w-3xl px-2"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 sm:mb-6">Our Technologies</h2>
+                    <p className="text-base sm:text-xl text-gray-400">
+                        Deep expertise across the full spectrum of emerging technologies.
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full max-w-6xl">
+                    {technologies.map((tech, index) => (
+                        <motion.div
+                            key={tech.title}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="group p-5 sm:p-8 rounded-xl sm:rounded-2xl bg-[#0B1F3A] backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-1"
+                        >
+                            <tech.icon className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400 mb-4 sm:mb-6 group-hover:text-white transition-colors duration-300" />
+                            <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 tracking-tight">{tech.title}</h3>
+                            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{tech.description}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.section>
+
+            {/* Product Lifecycle Section */}
+            <motion.section
+                className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-16 sm:py-20"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
+                <motion.div
+                    className="text-center mb-10 sm:mb-16 max-w-3xl px-2"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 sm:mb-6">Product Lifecycle</h2>
+                    <p className="text-base sm:text-xl text-gray-400">
+                        Our proven process takes your ideas from concept to market-ready products.
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 w-full max-w-6xl">
+                    {lifecycle.map((phase, index) => (
+                        <motion.div
+                            key={phase.step}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
+                            className="group p-4 sm:p-8 rounded-xl sm:rounded-2xl bg-[#0B1F3A] backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500"
+                        >
+                            <span className="text-2xl sm:text-4xl font-bold text-gray-600 mb-2 sm:mb-4 block">{phase.step}</span>
+                            <h3 className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 tracking-tight">{phase.title}</h3>
+                            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{phase.description}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.section>
+
+            {/* Industry Use Cases Section */}
+            <section className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-16 sm:py-20">
+                <div className="text-center mb-10 sm:mb-16 max-w-3xl px-2">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 sm:mb-6">Industry Use Cases</h2>
+                    <p className="text-base sm:text-xl text-gray-400">
+                        Real-world applications across diverse sectors.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full max-w-5xl">
+                    {useCases.map((useCase) => (
+                        <div
+                            key={useCase.title}
+                            className="group p-5 sm:p-8 rounded-xl sm:rounded-2xl bg-[#0B1F3A] backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500"
+                        >
+                            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 tracking-tight">{useCase.title}</h3>
+                            <ul className="space-y-1.5 sm:space-y-2">
+                                {useCase.items.map((item) => (
+                                    <li key={item} className="text-gray-400 text-xs sm:text-sm flex items-center gap-2">
+                                        <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-500 rounded-full shrink-0"></span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+
+            {/* CTA Section */}
+            <section className="min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-center items-center px-4 sm:px-6 py-16 sm:py-20">
+                <div className="text-center max-w-4xl px-2">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 sm:mb-6">
+                        Ready to Build Your Product?
+                    </h2>
+                    <p className="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
+                        Let's turn your vision into reality with cutting-edge technology and expert engineering.
+                    </p>
+                    <a
+                        href="#contact"
+                        className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-black bg-white rounded-full hover:bg-gray-200 transition-colors duration-300"
+                    >
+                        Start a Project
+                    </a>
+                </div>
+            </section>
+
+            
+        </motion.main>
+    )
+}

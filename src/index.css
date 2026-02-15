@@ -1,0 +1,140 @@
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body,
+html,
+#root,
+div,
+span,
+p,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Headings - Use Space Grotesk for bold, distinctive headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* Enhanced text classes for standout typography */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #0B8DD1 50%, #E86824 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(11, 141, 209, 0.5), 0 0 40px rgba(232, 104, 36, 0.3);
+}
+
+.text-sharp {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Prevent overscroll bounce on mobile */
+html,
+body {
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #030712;
+  /* Smooth momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+#root {
+  background-color: #030712;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Mobile-optimized typography scales */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Improved focus states for mobile */
+*:focus-visible {
+  outline: 2px solid rgba(6, 182, 212, 0.5);
+  outline-offset: 2px;
+}
+
+/* Better tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: rgba(6, 182, 212, 0.1);
+}
+
+/* Mobile card hover states */
+@media (hover: none) {
+  .hover\:scale-105:active {
+    transform: scale(1.02);
+  }
+}
+
+/* Prevent image drag on mobile */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a,
+.interactive {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (hover: none) {
+
+  button:active,
+  a:active,
+  .interactive:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}
