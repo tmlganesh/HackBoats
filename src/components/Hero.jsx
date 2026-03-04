@@ -1,4 +1,5 @@
 import { Button } from "./ui/button"
+import { Link } from "react-router-dom"
 
 export default function Hero() {
     const tags = ["Robotics", "AI", "IoT", "Drones", "Animatronics", "Space Science"]
@@ -24,9 +25,11 @@ export default function Hero() {
                     <Button size="lg" className="bg-cyan-500 hover:bg-cyan-400 text-black px-6 sm:px-8 w-full sm:w-auto text-sm sm:text-base font-semibold glow-cyan">
                         Explore Our Wings
                     </Button>
-                    <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-sm sm:text-base">
-                        Partner With Us
-                    </Button>
+                    <Link to="/contact">
+                        <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-sm sm:text-base">
+                            Partner With Us
+                        </Button>
+                    </Link>
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-3 pt-6 sm:pt-8 opacity-80 px-2">

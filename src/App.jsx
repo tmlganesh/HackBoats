@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const pageTransition = {
     initial: { opacity: 0, y: 20 },
@@ -37,19 +38,19 @@ const threeWings = [
         title: 'Product Development & Industry Solutions',
         description: 'End-to-end product engineering for Pharma, Film & Entertainment, Industrial Automation, and Security sectors using cutting-edge Robotics, AI, IoT, and Drones.',
         cta: 'Explore Solutions',
-        href: '#product',
+        href: '/product',
     },
     {
         title: 'Centres of Excellence (CoE)',
         description: 'Deploying Robotics & AI innovation ecosystems in engineering colleges. Building future-ready graduates through hands-on research and industry collaboration.',
         cta: 'Learn About CoE',
-        href: '#coe',
+        href: '/coe',
     },
     {
         title: 'Centralized Hackathons',
         description: 'Organizing national-level hackathons to drive innovation and discover talent. Real industry problems, mentorship, and prototype-based evaluation.',
         cta: 'Discover Hackathons',
-        href: '#hackathons',
+        href: '/hackathons',
     },
 ]
 
@@ -132,7 +133,7 @@ function App() {
                         Explore Our Wings
                     </a>
                     <a
-                        href="#contact"
+                        href="/contact"
                         className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white border border-white/20 rounded-full hover:bg-white/10 transition-colors duration-300"
                     >
                         Partner With Us
@@ -177,9 +178,9 @@ function App() {
                                 {wing.title}
                             </h3>
                             <p className="text-gray-400 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">{wing.description}</p>
-                            <a href={wing.href} className="inline-flex items-center gap-2 text-cyan-400 text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                            <Link to={wing.href} className="inline-flex items-center gap-2 text-cyan-400 text-sm font-medium group-hover:gap-3 transition-all duration-300">
                                 {wing.cta} <ArrowRight size={16} />
-                            </a>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
@@ -249,7 +250,7 @@ function App() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full">
                         <a
-                            href="#contact"
+                            href="/contact"
                             className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-black bg-white rounded-full hover:bg-gray-200 transition-colors duration-300"
                         >
                             Start a Conversation

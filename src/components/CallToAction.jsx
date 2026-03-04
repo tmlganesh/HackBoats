@@ -1,4 +1,5 @@
 import { Button } from "./ui/button"
+import { Link } from "react-router-dom"
 
 export default function CallToAction() {
     return (
@@ -10,9 +11,11 @@ export default function CallToAction() {
                 <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-2">
                     Whether you're looking to build cutting-edge products, deploy a Centre of Excellence, or host a transformative hackathon — we're here to make it happen.
                 </p>
-                <Button size="lg" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300 w-full sm:w-auto">
-                    Start a Conversation
-                </Button>
+                <Link to="/contact">
+                    <Button size="lg" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300 w-full sm:w-auto">
+                        Start a Conversation
+                    </Button>
+                </Link>
             </div>
         </section>
     )

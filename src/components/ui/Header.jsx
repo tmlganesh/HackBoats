@@ -1,5 +1,6 @@
 import { Button } from "./button"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import hackboatsLogo from "../../assets/hackboats-logo.png"
 import { clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
@@ -62,12 +63,14 @@ export default function Header() {
                 </nav>
 
                 {/* CTA Button */}
-                <Button
-                    variant="outline"
-                    className="hidden sm:inline-flex rounded-full border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300"
-                >
-                    Partner With Us
-                </Button>
+                <Link to="/contact">
+                    <Button
+                        variant="outline"
+                        className="hidden sm:inline-flex rounded-full border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300"
+                    >
+                        Partner With Us
+                    </Button>
+                </Link>
             </div>
         </header>
     )
